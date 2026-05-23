@@ -7,7 +7,10 @@ RUN mvn clean package -DskipTests
 # Этап 2: Запуск
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
-# Этот шаг находит любой созданный jar-файл в папке target и переименовывает его в app.jar
 COPY --from=build /app/target/*.jar app.jar
+
+# Явно говорим Docker открыть порт 8080 для внешнего мира
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Передаем порт серверу Spring Boot через аргументы запуска
+ENTRYPOINT ["java", "-Dserver.port=8080", "-jar", "app.jar"]

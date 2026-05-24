@@ -19,5 +19,6 @@ public class Note {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties({"studyPlans", "notes", "password"}) // ИСПРАВЛЕНО
     private User user;
 }

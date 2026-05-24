@@ -1,15 +1,14 @@
-// AuthController.java
 package com.study.planner.controller;
 
-import com.studyplanner.dto.AuthRequest;
+import com.study.planner.dto.AuthRequest;
 import com.study.planner.model.User;
-import com.studyplanner.service.AuthService;
+import com.study.planner.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*") // Чтобы фронтенд мог делать запросы
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     private final AuthService authService;
@@ -25,8 +24,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
-        // Здесь генерируется JWT токен, который возвращается на фронтенд
-        String token = authService.authenticate(request.getEmail(), request.getPassword());
-        return ResponseEntity.ok(token);
+        // ИСПРАВЛЕНО: Сервис возвращает объект User, передаем его напрямую в JSON
+        User user = authService.authenticate(request.getEmail(), request.getPassword());
+        return ResponseEntity.ok(user);
     }
 }

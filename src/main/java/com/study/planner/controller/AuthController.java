@@ -24,7 +24,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
-        // ИСПРАВЛЕНО: Сервис возвращает объект User, передаем его напрямую в JSON
+        // ИСПРАВЛЕНО: Принимаем User и передаем его в ответ напрямую
         User user = authService.authenticate(request.getEmail(), request.getPassword());
         return ResponseEntity.ok(user);
     }

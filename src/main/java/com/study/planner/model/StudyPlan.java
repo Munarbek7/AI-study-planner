@@ -19,8 +19,10 @@ public class StudyPlan {
     private String level;
     private String hoursPerDay;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties({"studyPlans", "notes", "password"}) // ИСПРАВЛЕНО
     private User user;
 
     @OneToMany(mappedBy = "studyPlan", cascade = CascadeType.ALL, orphanRemoval = true)

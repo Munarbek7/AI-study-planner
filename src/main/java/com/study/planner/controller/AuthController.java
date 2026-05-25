@@ -1,4 +1,3 @@
-// 1. AuthController.java
 package com.study.planner.controller;
 
 import com.study.planner.dto.AuthRequest;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     private final AuthService authService;
@@ -24,8 +24,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
+        // ИСПРАВЛЕНО: Принимаем User и передаем его в ответ напрямую
         User user = authService.authenticate(request.getEmail(), request.getPassword());
-        // Возвращаем объект пользователя (в сессионных целях передаем ID на фронтенд)
         return ResponseEntity.ok(user);
     }
 }

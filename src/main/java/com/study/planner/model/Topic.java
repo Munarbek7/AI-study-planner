@@ -19,6 +19,7 @@ public class Topic {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "study_plan_id", nullable = false)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties("topics") // ИСПРАВЛЕНО
     private StudyPlan studyPlan;
 
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)

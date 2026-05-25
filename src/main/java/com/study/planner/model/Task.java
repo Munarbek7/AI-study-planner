@@ -17,5 +17,6 @@ public class Task {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", nullable = false)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties("tasks") // ИСПРАВЛЕНО
     private Topic topic;
 }

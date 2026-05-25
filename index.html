@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" data-page="dashboard">AI Study Planner</a>
+
+      <nav class="main-nav" id="mainNav">
+        <button class="nav-link active" data-page="dashboard">Dashboard</button>
+        <button class="nav-link" data-page="calendar">Calendar</button>
+        <button class="nav-link" data-page="new-plan">New Plan</button>
+        <button class="nav-link" data-page="timer">Timer</button>
+        <button class="nav-link" data-page="notes">Notes</button>
+        <button class="nav-link" data-page="profile">Profile</button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-outline">Sign Up</button>
+        <button class="btn btn-primary">Log In</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <section class="page active-page" id="dashboard">
+        <div class="cta-banner">
+          <div class="cta-copy">
+            <h2>Want to save your progress across devices?</h2>
+            <p>Create an account to sync your study plans and continue learning anywhere.</p>
+          </div>
+
+          <div class="cta-actions">
+            <button class="btn btn-primary large">Create Account</button>
+            <button class="btn btn-outline large">Continue as Guest</button>
+          </div>
+        </div>
+
+        <h1 class="page-title">Dashboard</h1>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span class="stat-label">Days Left</span>
+            <strong class="stat-value" id="daysLeft">10</strong>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-label">Progress</span>
+            <strong class="stat-value" id="progressValue">0%</strong>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-label">Today's Tasks</span>
+            <strong class="stat-value" id="tasksCount">3</strong>
+          </article>
+
+          <article class="stat-card">
+            <span class="stat-label">Study Hours</span>
+            <strong class="stat-value" id="studyHoursValue">3h</strong>
+          </article>
+        </div>
+
+        <article class="panel-card tasks-panel">
+          <h2 class="panel-title">Today's Tasks — <span id="todayTopicTitle">Binary Conversions</span></h2>
+
+          <div class="task-list" id="taskList">
+            <label class="task-item">
+              <input type="checkbox" class="task-check" />
+              <span>Learn basic binary rules</span>
+            </label>
+
+            <label class="task-item">
+              <input type="checkbox" class="task-check" />
+              <span>Solve 10 practice problems</span>
+            </label>
+
+            <label class="task-item">
+              <input type="checkbox" class="task-check" />
+              <span>Review mistakes</span>
+            </label>
+          </div>
+        </article>
+      </section>
+
+      <section class="page" id="calendar">
+        <h1 class="page-title calendar-title">Study Calendar</h1>
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </section>
+
+      <section class="page" id="new-plan">
+        <div class="form-shell">
+          <h1 class="page-title">Create Your Study Plan</h1>
+          <p class="page-subtitle">Enter your exam details and the AI will generate a personalized plan.</p>
+
+          <form id="planForm" class="planner-form">
+            <label class="form-group">
+              <span>Exam Name</span>
+              <input type="text" id="examName" value="Discrete Math Exam" />
+            </label>
+
+            <label class="form-group">
+              <span>Exam Date</span>
+              <div class="input-with-icon">
+                <input type="text" id="examDate" value="01.06.2026" />
+                <span class="input-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 3V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M16 3V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M4 10H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </div>
+            </label>
+
+            <label class="form-group">
+              <span>Current Level</span>
+              <select id="level">
+                <option selected>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+              </select>
+            </label>
+
+            <label class="form-group">
+              <span>Study Hours Per Day</span>
+              <input type="number" id="hoursPerDay" value="3" min="1" max="12" />
+            </label>
+
+            <div class="form-group">
+              <span>Topics to Study</span>
+              <div class="topic-tags" id="topicTags">
+                <button type="button" class="topic-tag selected">Binary conversions</button>
+                <button type="button" class="topic-tag selected">Modular arithmetic</button>
+                <button type="button" class="topic-tag selected">Mathematical induction</button>
+                <button type="button" class="topic-tag selected">Counting</button>
+                <button type="button" class="topic-tag selected">Graph theory</button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary generate-btn">Generate My Plan</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="page" id="timer">
+        <div class="timer-page">
+          <h1 class="page-title center">Focus Timer</h1>
+          <div class="timer-circle"><span id="timerValue">25:00</span></div>
+
+          <div class="timer-controls">
+            <button class="btn btn-primary timer-btn" id="startTimer">Start</button>
+            <button class="btn btn-soft timer-btn" id="pauseTimer">Pause</button>
+            <button class="btn btn-neutral timer-btn" id="resetTimer">Reset</button>
+          </div>
+
+          <article class="focus-card">
+            <span class="focus-label">Today's Focus Task</span>
+            <strong id="focusTaskText">Binary Conversions – Practice Set</strong>
+          </article>
+
+          <div class="tip-card">
+            <span class="tip-icon">💡</span>
+            <span>Tip: Take a 5–minute break after each 25–minute session.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="notes">
+        <h1 class="page-title notes-title">Study Notes</h1>
+
+        <div class="notes-layout">
+          <article class="note-editor panel-card">
+            <h2 class="panel-title">New Note</h2>
+            <form id="noteForm">
+              <input type="text" id="noteTitle" class="note-input" placeholder="Note title..." />
+              <textarea id="noteText" class="note-textarea" placeholder="Write your note..."></textarea>
+              <button type="submit" class="btn btn-primary save-note-btn">Save Note</button>
+            </form>
+          </article>
+
+          <div class="saved-notes">
+            <h2 class="panel-title">Saved Notes</h2>
+            <div id="notesList" class="notes-list empty">No notes yet.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="profile">
+        <h1 class="page-title">My Account</h1>
+
+        <article class="profile-main-card">
+          <div class="profile-left">
+            <div class="avatar-wrap">
+              <div class="profile-avatar">
+                <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                  <circle cx="60" cy="60" r="60" fill="#E5E7EB"></circle>
+                  <circle cx="60" cy="43" r="17" fill="#9CA3AF"></circle>
+                  <path d="M29 93c4-16 18-26 31-26s27 10 31 26" fill="#9CA3AF"></path>
+                </svg>
+              </div>
+            </div>
+
+            <h2 class="profile-name">Alex Student</h2>
+            <p class="profile-email">alex@student.com</p>
+            <p class="profile-role">University Student</p>
+
+            <div class="current-goal">
+              <span>Current Goal</span>
+              <strong id="currentGoalText">Prepare for Discrete Math Exam</strong>
+            </div>
+
+            <button class="btn btn-soft-light edit-btn">Edit Profile</button>
+          </div>
+
+          <div class="profile-right">
+            <div class="info-block">
+              <span>Current Subject</span>
+              <strong id="profileSubject">Discrete Math</strong>
+            </div>
+            <div class="info-block">
+              <span>Exam Date</span>
+              <strong id="profileExamDate">June 1, 2026</strong>
+            </div>
+            <div class="info-block">
+              <span>Days Left</span>
+              <strong id="profileDaysLeft">10 days</strong>
+            </div>
+            <div class="info-block">
+              <span>Current Level</span>
+              <strong id="profileLevel">Beginner</strong>
+            </div>
+            <div class="info-block">
+              <span>Daily Study Time</span>
+              <strong id="profileStudyTime">3 hours/day</strong>
+            </div>
+            <div class="progress-block">
+              <span>Overall Progress</span>
+              <div class="progress-row">
+                <div class="progress-track"><div class="progress-fill" id="profileProgressFill" style="width: 40%;"></div></div>
+                <strong id="profileProgressText">40%</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <h2 class="section-title">Learning Statistics</h2>
+
+        <div class="learning-stats">
+          <article class="learning-card"><strong id="completedTopicsStat">3</strong><span>Completed Topics</span></article>
+          <article class="learning-card"><strong>5</strong><span>Study Streak</span></article>
+          <article class="learning-card"><strong id="totalHoursStat">12h</strong><span>Total Hours</span></article>
+          <article class="learning-card"><strong>80%</strong><span>Average Score</span></article>
+          <article class="learning-card"><strong id="tasksDoneStat">18</strong><span>Tasks Done</span></article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

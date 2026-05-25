@@ -312,7 +312,8 @@ updateTimerUI();
 // --- БЛОК АВТОРИЗАЦИИ И СВЯЗИ С БЭКЕНДОМ ---
 // ==========================================
 
-const API_URL = "http://localhost:8080/api";
+// ИСПРАВЛЕНО: Укажите здесь URL вашего бэкенда на Railway
+const API_URL = "https://ai-study-planner-production-4865.up.railway.app/api";
 
 const authModal = document.getElementById("authModal");
 const closeModalBtn = document.getElementById("closeModalBtn");

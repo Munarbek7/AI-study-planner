@@ -1,13 +1,16 @@
-AI Study Planner — Умный планировщик подготовки к экзаменам
+# 📖 AI Study Planner — Smart Exam Preparation Assistant
 
-Привет! Это проект нашей команды, созданный в рамках AIU Internship Hackathon. 
+Hi there! This is our team's project, built during the AIU Internship Hackathon.
 
-Мы заметили, что самая большая боль студентов во время сессии — это не сам экзамен, а хаос при подготовке. Сложно понять, за какие темы хвататься в первую неделю, как распределить нагрузку и где быстро получить помощь, если застрял на сложном алгоритме.
+We noticed that a student's biggest pain point during finals isn't the exam itself, but the chaos of preparation. It is often hard to figure out which topics to tackle in the first week, how to balance the study load, or where to get quick help when you are stuck on a complex algorithm.
 
-AI Study Planner решает эту проблему. Это не просто статичный календарь, приложение которое использует искусственный интеллект для генерации персонального учебного трека и сохраняет весь прогресс в реальную базу данных.
+AI Study Planner solves this exact problem. It is not just another static calendar; it is a full-featured application that leverages Artificial Intelligence to generate a personalized learning track and saves all your progress into a real database.
 
+---
 
-Мы построили классическую клиент-серверную архитектуру промышленного уровня:
+## 🛠 Our Technical Stack
 
-* Frontend: HTML5, CSS3 (современный адаптивный интерфейс с эффектом Blur и Glassmorphism), JavaScript (Vanilla JS для динамического рендеринга и работы с API).
-* Database: MySQL (СУБД) — реляционные таблицы users и tasks со связью один-ко-многим (One-to-Many).
+We built a classic, industry-standard client-server architecture:
+
+* Frontend: HTML5, CSS3 (featuring a modern, responsive interface with blur effects and Glassmorphism design), and JavaScript (Vanilla JS for dynamic rendering and API consumption).
+* Database: MySQL (DBMS) — relational users and tasks tables with a strict One-to-Many relationship.

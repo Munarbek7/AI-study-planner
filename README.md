@@ -1,4 +1,4 @@
-# 📖 AI Study Planner — Smart Exam Preparation Assistant
+#  AI Study Planner — Smart Exam Preparation Assistant
 
 Hi there! This is our team's project, built during the AIU Internship Hackathon.
 
@@ -8,7 +8,7 @@ AI Study Planner solves this exact problem. It is not just another static calend
 
 ---
 
-## 🛠 Our Technical Stack
+## Our Technical Stack
 
 We built a classic, industry-standard client-server architecture:
 

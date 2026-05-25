@@ -12,5 +12,5 @@ AI Study Planner solves this exact problem. It is not just another static calend
 
 We built a classic, industry-standard client-server architecture:
 
-* Frontend: HTML5, CSS3 (featuring a modern, responsive interface with blur effects and Glassmorphism design), and JavaScript (Vanilla JS for dynamic rendering and API consumption).
+* Frontend: HTML5, CSS3 (featuring a modern, responsive interface with blur effects and Glassmorphism design), and JavaScript (Vanilla JS for dynamic rendering and also API consumption).
 * Database: MySQL (DBMS) — relational users and tasks tables with a strict One-to-Many relationship.
